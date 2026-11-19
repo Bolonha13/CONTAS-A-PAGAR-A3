@@ -18,6 +18,10 @@ public class Cadastro {
             String texto = teclado.nextLine();
             try {
                 documento = Integer.parseInt(texto);
+                if (documento <= 0) {
+                    System.out.println("Erro: o documento deve ser maior que zero.");
+                    valido = false;
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Erro: digite apenas números.");
                 valido = false;
