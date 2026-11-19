@@ -34,4 +34,20 @@ public class Conta { //atributos
     public String getDataVencimento () {
         return dataVencimento;
     }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setBeneficiario(String beneficiario) {
+        this.beneficiario = beneficiario;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public void setDataVencimento(String dataVencimento) {
+        this.dataVencimento = dataVencimento;
+    }
 }
