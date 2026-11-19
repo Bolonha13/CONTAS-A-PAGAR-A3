@@ -25,11 +25,4 @@ public class Cadastro {
         } while (!valido);
         return documento;
     }
-    
-    // TESTE TEMPORÁRIO - apagar antes do commit
-    public static void main(String[] args) {
-        Cadastro c = new Cadastro();
-        int doc = c.lerDocumento(new ListaContas());
-        System.out.println("Documento lido: " + doc);
-    }
 }
