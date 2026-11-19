@@ -1,4 +1,6 @@
-package contasapagar;
+package contasapagar.relatorios;
+
+import contasapagar.modelo.Conta;
 
 public class BalancoDespesas {
     // Calcula o total de todas as despesas
@@ -59,5 +61,5 @@ public class BalancoDespesas {
 
         return total;
     }
-    
+   
 }
