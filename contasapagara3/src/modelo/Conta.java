@@ -9,4 +9,15 @@ public class Conta {
     private String datavencimento; 
     private double valor; 
     private boolean paga; 
+    
+    // Construtor da conta
+    
+    public Conta(String documento, String descricao, String datavencimento, double valor, boolean paga){
+        this.documento = documento; 
+        this.descricao = descricao; 
+        this.paga = paga; 
+        this.valor = valor; 
+        this.datavencimento = datavencimento; 
+        
+    }
 }
