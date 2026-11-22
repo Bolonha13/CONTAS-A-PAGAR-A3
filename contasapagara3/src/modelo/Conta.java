@@ -58,4 +58,9 @@ public class Conta {
     public void setValor(double valor) {
         this.valor = valor;
     }
+    // Setter do status de pagamento
+
+    public void setPaga(boolean paga) {
+        this.paga = paga;
+    }
 }
