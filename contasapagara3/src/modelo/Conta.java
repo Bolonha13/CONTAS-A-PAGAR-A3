@@ -33,5 +33,10 @@ public class Conta {
         return datavencimento;
     }
 
+    // Getter do valor
+    public double getValor() {
+        return valor;
+    }
+
 }
 
