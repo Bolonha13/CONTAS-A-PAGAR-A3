@@ -22,5 +22,11 @@ public class Conta {
         return documento;
 
     }
+    
+    // Getter da descricao
+    public String getDescricao() {
+        return descricao;
+    }
+
 }
 
