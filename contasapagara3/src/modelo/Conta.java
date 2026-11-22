@@ -53,4 +53,9 @@ public class Conta {
     public void setDatavencimento(String datavencimento) {
         this.datavencimento = datavencimento;
     }
+    // Setter do valor
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 }
