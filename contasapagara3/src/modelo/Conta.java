@@ -38,5 +38,10 @@ public class Conta {
         return valor;
     }
 
+    // Getter do status de pagamento
+    public boolean isPaga() {
+        return paga;
+    }
+
 }
 
