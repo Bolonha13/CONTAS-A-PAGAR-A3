@@ -17,12 +17,13 @@ public class Conta {
         this.valor = valor;
         this.datavencimento = datavencimento;
     }
-        // Getter do documento
+    // Getter do documento
+
     public String getDocumento() {
         return documento;
 
     }
-    
+
     // Getter da descricao
     public String getDescricao() {
         return descricao;
@@ -42,6 +43,9 @@ public class Conta {
     public boolean isPaga() {
         return paga;
     }
+// Setter da descrição
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 }
-
