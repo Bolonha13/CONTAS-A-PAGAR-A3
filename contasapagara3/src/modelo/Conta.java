@@ -28,5 +28,10 @@ public class Conta {
         return descricao;
     }
 
+    // Getter da data de vencimento
+    public String getDatavencimento() {
+        return datavencimento;
+    }
+
 }
 
