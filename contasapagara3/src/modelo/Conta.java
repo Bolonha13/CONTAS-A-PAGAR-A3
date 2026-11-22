@@ -48,4 +48,9 @@ public class Conta {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    // Setter da data de vencimento
+
+    public void setDatavencimento(String datavencimento) {
+        this.datavencimento = datavencimento;
+    }
 }
