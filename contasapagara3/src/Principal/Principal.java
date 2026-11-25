@@ -15,7 +15,7 @@ public class Principal {
 
         do {
 
-            opcao = Integer.parseInt(JOptionPane.showInputDialog(
+            String entrada = JOptionPane.showInputDialog(
                     "===== SISTEMA DE CONTAS A PAGAR =====\n\n"
                     + "1 - Cadastrar conta\n"
                     + "2 - Consultar conta\n"
@@ -23,9 +23,19 @@ public class Principal {
                     + "4 - Dar baixa em conta\n"
                     + "5 - Relatórios\n"
                     + "6 - Sair\n\n"
-                    + "Escolha uma opção:"));
+                    + "Escolha uma opção:");
 
-    switch (opcao) {
+            if (entrada == null) {
+                opcao = 6;
+            } else {
+                try {
+                    opcao = Integer.parseInt(entrada);
+                } catch (NumberFormatException e) {
+                    opcao = 0;
+                }
+            }
+
+      switch (opcao) {
 
                 case 1:
                     JOptionPane.showMessageDialog(null, "Cadastro de contas");
