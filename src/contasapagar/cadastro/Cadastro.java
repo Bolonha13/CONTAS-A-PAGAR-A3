@@ -2,11 +2,9 @@ package contasapagar.cadastro;
 
 import contasapagar.estrutura.ListaContas;
 import contasapagar.modelo.Conta;
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Cadastro {
-
-    private Scanner teclado = new Scanner(System.in);
 
     private int lerDocumento(ListaContas lista) {
         int documento = 0;
@@ -14,16 +12,18 @@ public class Cadastro {
         do {
             valido = true;
 
-            System.out.print("DOCUMENTO : ");
-            String texto = teclado.nextLine();
+            String texto = JOptionPane.showInputDialog("Informe o documento");
+            if (texto == null) {
+                return 0;
+            }
             try {
                 documento = Integer.parseInt(texto);
                 if (documento <= 0) {
-                    System.out.println("Erro: o documento deve ser maior que zero.");
+                    JOptionPane.showMessageDialog(null, "Erro: o documento deve ser maior que zero.");
                     valido = false;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Erro: digite apenas números.");
+                JOptionPane.showMessageDialog(null, "Erro: digite apenas números.");
                 valido = false;
             }
         } while (!valido);
