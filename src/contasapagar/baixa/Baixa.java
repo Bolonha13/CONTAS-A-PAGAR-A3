@@ -34,6 +34,29 @@ public class Baixa {
             JOptionPane.showMessageDialog(null, "Descricao: " + descricao);
             JOptionPane.showMessageDialog(null, "Beneficiario: " + beneficiario);
             JOptionPane.showMessageDialog(null, "Valor atual: R$ " + valor);
+            String pagamento = JOptionPane.showInputDialog("Informe o valor do pagamento:");
+
+            if (pagamento == null) {
+                return;
+            }
+
+            double valorPago = Double.parseDouble(pagamento);
+            while (valorPago <= 0 || valorPago > valor) {
+
+                JOptionPane.showMessageDialog(null, "Valor de pagamento invalido.");
+
+                pagamento = JOptionPane.showInputDialog("Informe novamente o valor:");
+
+                if (pagamento == null) {
+                    return;
+                }
+
+                valorPago = Double.parseDouble(pagamento);
+            }
+            double valorFinal = valor - valorPago;
+
+            JOptionPane.showMessageDialog(null, "Valor final: R$ " + valorFinal);
+
         }
     }
 }
