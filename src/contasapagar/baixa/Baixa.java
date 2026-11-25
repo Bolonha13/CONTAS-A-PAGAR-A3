@@ -56,6 +56,14 @@ public class Baixa {
             double valorFinal = valor - valorPago;
 
             JOptionPane.showMessageDialog(null, "Valor final: R$ " + valorFinal);
+            String confirma = JOptionPane.showInputDialog("Confirma baixa? (S/N)");
+            if ("S".equalsIgnoreCase(confirma)) {
+                conta.setValor(valorFinal);
+                JOptionPane.showMessageDialog(null, "Baixa realizada com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Baixa cancelada.");
+            }
+            
 
         }
     }
