@@ -66,10 +66,62 @@ public class Cadastro {
                     valido = false;
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Erro: digite um valor numérico . Ex: 150,50");
+                JOptionPane.showMessageDialog(null, "Erro: digite um valor numérico. Ex: 150,50");
                 valido = false;
             }
         } while (!valido);
         return valor;
+    }
+
+    private String lerData() {
+        String data;
+        boolean valido;
+        do {
+            valido = true;
+            data = JOptionPane.showInputDialog("Informe a data de vencimento (dd/mm/aaaa): ");
+            if (data == null) {
+                return null;
+            }
+            String[] partes = data.split("/");
+            if (partes.length != 3) {
+                JOptionPane.showMessageDialog(null, "Erro: use o formato dd/mm/aaaa.");
+                valido = false;
+            } else {
+                try {
+                    int dia = Integer.parseInt(partes[0]);
+                    int mes = Integer.parseInt(partes[1]);
+                    int ano = Integer.parseInt(partes[2]);
+
+                    if (mes < 1 || mes > 12 || ano < 2000 || ano > 2100) {
+                        JOptionPane.showMessageDialog(null, "Erro: mês ou ano inválido.");
+                        valido = false;
+                    } else {
+                        // descobre quantos dias tem o mês
+                        int diasDoMes;
+                        if (mes == 2) {
+                            if ((ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0) {
+                                diasDoMes = 29; // ano bissexto
+                            } else {
+                                diasDoMes = 28; // ano não bissexto
+                            }
+                        } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+                            diasDoMes = 30;
+                        } else {
+                            diasDoMes = 31;
+                        }
+
+                        if (dia < 1 || dia > diasDoMes) {
+                            JOptionPane.showMessageDialog(null, "Erro: dia inválido para este mês.");
+                            valido = false;
+                        }
+                    }
+
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Erro: a data deve ter apenas números e barras.");
+                    valido = false;
+                }
+            }
+        } while (!valido);
+        return data;
     }
 }
