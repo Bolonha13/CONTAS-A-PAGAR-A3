@@ -26,7 +26,7 @@ public class ContasVencidas {
             Conta conta = lista.getConta(i);
 
             int vencimento = converterData(conta.getDataVencimento());
-
+        
             if (vencimento >= inicio && vencimento <= fim
                     && vencimento < hoje && conta.getValor() > 0) {
 
@@ -47,6 +47,22 @@ public class ContasVencidas {
                     contasVencidas[j] = auxiliar;
                 }
             }
+        }
+        JOptionPane.showMessageDialog(null, "RELATORIO DE CONTAS VENCIDAS");
+
+        if (quantidadeVencidas == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhuma conta vencida encontrada nesse periodo.");
+        }
+        for (int i = 0; i < quantidadeVencidas; i++) {
+
+            Conta conta = contasVencidas[i];
+
+            JOptionPane.showMessageDialog(null, "Vencimento: " + conta.getDataVencimento());
+            JOptionPane.showMessageDialog(null, "Valor: R$ " + conta.getValor());
+            JOptionPane.showMessageDialog(null, "Documento: " + conta.getDocumento());
+            JOptionPane.showMessageDialog(null, "Descricao: " + conta.getDescricao());
+            JOptionPane.showMessageDialog(null, "Beneficiario: " + conta.getBeneficiario());
+
         }
     }
 
