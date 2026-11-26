@@ -21,6 +21,9 @@ public class Cadastro {
                 if (documento <= 0) {
                     JOptionPane.showMessageDialog(null, "Erro: o documento deve ser maior que zero.");
                     valido = false;
+                } else if (lista.consultar(documento) != null) {
+                    JOptionPane.showMessageDialog(null, "Erro: documento já cadastrado.");
+                    valido = false;
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Erro: digite apenas números.");
