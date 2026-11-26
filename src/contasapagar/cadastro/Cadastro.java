@@ -12,7 +12,7 @@ public class Cadastro {
         do {
             valido = true;
 
-            String texto = JOptionPane.showInputDialog("Informe o documento");
+            String texto = JOptionPane.showInputDialog("Informe o documento: ");
             if (texto == null) {
                 return 0;
             }
@@ -48,5 +48,28 @@ public class Cadastro {
             }
         } while (!valido);
         return texto.trim();
+    }
+
+    private double lerValor() {
+        double valor = 0;
+        boolean valido;
+        do {
+            valido = true;
+            String texto = JOptionPane.showInputDialog("Informe o valor: ");
+            if (texto == null) {
+                return 0;
+            }
+            try {
+                valor = Double.parseDouble(texto.replace(",", "."));
+                if (valor <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro: o valor deve ser maior que zero.");
+                    valido = false;
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Erro: digite um valor numérico . Ex: 150,50");
+                valido = false;
+            }
+        } while (!valido);
+        return valor;
     }
 }
