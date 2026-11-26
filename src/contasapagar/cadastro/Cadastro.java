@@ -124,4 +124,45 @@ public class Cadastro {
         } while (!valido);
         return data;
     }
+
+    public void incluir(ListaContas lista) {
+        // Lê os dados; se a pessoa cancelar em qualquer um, volta ao menu
+        int documento = lerDocumento(lista);
+        if (documento == 0) {
+            return;
+        }
+        String descricao = lerTexto("Informe a descrição:");
+        if (descricao == null) {
+            return;
+        }
+        String beneficiario = lerTexto("Informe o beneficiário:");
+        if (beneficiario == null) {
+            return;
+        }
+        double valor = lerValor();
+        if (valor == 0) {
+            return;
+        }
+        String vencimento = lerData();
+        if (vencimento == null) {
+            return;
+        }
+
+        // Mostra o resumo e pede confirmação
+        String resumo = "DOCUMENTO: " + documento
+                + "\nDESCRIÇÃO: " + descricao
+                + "\nBENEFICIÁRIO: " + beneficiario
+                + "\nVALOR: R$ " + String.format("%.2f", valor)
+                + "\nVENCIMENTO: " + vencimento;
+
+        int resposta = JOptionPane.showConfirmDialog(null, resumo + "\n\nConfirma inclusão?",
+                "Inclusão de conta", JOptionPane.YES_NO_OPTION);
+
+        if (resposta == JOptionPane.YES_OPTION) {
+            lista.adicionar(new Conta(documento, descricao, beneficiario, valor, vencimento));
+            JOptionPane.showMessageDialog(null, "Conta incluída com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Inclusão cancelada.");
+        }
+    }
 }
