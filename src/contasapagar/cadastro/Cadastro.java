@@ -32,4 +32,21 @@ public class Cadastro {
         } while (!valido);
         return documento;
     }
+
+    private String lerTexto(String pergunta) {
+        String texto;
+        boolean valido;
+        do {
+            valido = true;
+            texto = JOptionPane.showInputDialog(pergunta);
+            if (texto == null) {
+                return null;
+            }
+            if (texto.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Erro: este campo não pode ficar vazio.");
+                valido = false;
+            }
+        } while (!valido);
+        return texto.trim();
+    }
 }
