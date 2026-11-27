@@ -1,37 +1,52 @@
 package contasapagar.modelo;
 
-public class Conta { //atributos
-    private int documento; 
-    private String descricao; 
-    private String beneficiario; 
-    private double valor; 
+public class Conta {
+
+    // Atributos
+    private int documento;
+    private String descricao;
+    private String beneficiario;
+    private double valor;   // valor original da despesa (não muda na baixa)
+    private double saldo;   // quanto ainda falta pagar (diminui na baixa)
     private String dataVencimento;
-    
-    public Conta (int documento, String descricao, String beneficiario, double valor, String dataVencimento) { //Construtor
+
+    // Construtor: a conta começa devendo o valor inteiro
+    public Conta(int documento, String descricao, String beneficiario, double valor, String dataVencimento) {
         this.documento = documento;
         this.descricao = descricao;
         this.beneficiario = beneficiario;
         this.valor = valor;
-        this.dataVencimento = dataVencimento; //indica que estamos preenchendo os atributos da própria conta com os valores recebidos pelo construtor
+        this.saldo = valor;
+        this.dataVencimento = dataVencimento;
     }
-    
-    public int getDocumento() { //Métodos de acesso (getters)
+
+    // Retorna o número do documento
+    public int getDocumento() {
         return documento;
     }
-    
-    public String getDescricao () {
+
+    // Retorna a descrição da conta
+    public String getDescricao() {
         return descricao;
     }
-    
-    public String getBeneficiario () {
+
+    // Retorna o beneficiário
+    public String getBeneficiario() {
         return beneficiario;
     }
-    
-    public double getValor () {
+
+    // Retorna o valor original da despesa
+    public double getValor() {
         return valor;
     }
-    
-    public String getDataVencimento () {
+
+    // Retorna o saldo devedor atual
+    public double getSaldo() {
+        return saldo;
+    }
+
+    // Retorna a data de vencimento
+    public String getDataVencimento() {
         return dataVencimento;
     }
 
@@ -45,6 +60,11 @@ public class Conta { //atributos
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    // Atualiza o saldo devedor (usado na baixa)
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 
     public void setDataVencimento(String dataVencimento) {
